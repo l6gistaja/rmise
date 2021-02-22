@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', function () { return redirect('applications'); });
+
+
+//Route::get('/', 'ApplicationController@index');
+Route::resource('applications', 'App\Http\Controllers\ApplicationController');
+
