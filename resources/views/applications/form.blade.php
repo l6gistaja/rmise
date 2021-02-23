@@ -67,7 +67,7 @@
                 <a name="services">{{ __('Application services') }}</a>
             </div>
             <a class="btn btn-success" href="{{ url('/services/create?aid='.$item->app_code) }}" role="button">{{ __('Add new service to application') }}</a>
-            <br/>
+            <br/><br/>
             <table class="table table-striped">
             <tbody>
             @foreach($item->appServices()->get() as $k => $s)
@@ -79,7 +79,7 @@
             </tr>
             @endif
             <tr>
-                <td><a href="{{ url('/services/'.$item->service_code.'/edit') }}">{{ $s->name }}</a></td>
+                <td><a href="{{ url('/services/'.$s->service_code.'/edit') }}">{{ $s->name }}</a></td>
                 <td>{{ $s->type }}</td>
                 <td>{{ $s->sub_type }}</td>
             </tr>

@@ -19,11 +19,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">Rmise</a>
             </div>
         </nav>
-        @guest
         <main class="py-4">
-        @else
-        <main>
-        @endguest
             @yield('content')
         </main>
     </div>
