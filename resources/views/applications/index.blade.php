@@ -3,10 +3,13 @@
 @section('content')
     <div class="container">
 
-        <form action="{{ url('/applications') }}">
-        <input type="text" name="q" />
-        <input type="submit" class="btn btn-primary" role="button" value="{{ __('Search') }}"/><br/><br/>
+        <form action="{{ url('/applications') }}" class="input-group">
+            <div class="input-group-prepend">
+                <input type="submit" class="btn btn-primary" id="bq" value="{{ __('Search') }}"/>
+            </div>
+            <input type="text" name="q" class="form-control" placeholder="{{ __('Put keywords here') }}" aria-describedby="bq" value="{{ $q }}"/>
         </form>
+        <br/><br/>
 
         @if($items)@if(count($items))<table class="table table-striped">
             <thead>

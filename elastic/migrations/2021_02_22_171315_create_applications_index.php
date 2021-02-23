@@ -15,9 +15,9 @@ final class CreateApplicationsIndex implements MigrationInterface
     {
         Index::create('applications', function (Mapping $mapping, Settings $settings) {
             $mapping->text('name');
-	    $mapping->keyword('app_group');
-	    $mapping->keyword('app_type');
-	    $mapping->text('description');
+            $mapping->keyword('app_group');
+            $mapping->keyword('app_type');
+            $mapping->text('description');
         });
     }
 

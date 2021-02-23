@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use App\Models\AppService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -19,10 +20,20 @@ class ApplicationController extends Controller
     public function index(Request $request)
     {
         $items = [];
+        $q = '';
         if(isset($request->q)) {
-            $items = Application::search($request->q)->take(self::DISPLAY_SEARCH_RESULTS)->get();
+            $q = $request->q;
+            $items = Application::search($q)->take(self::DISPLAY_SEARCH_RESULTS)->get();
+            if(count($items) < 1) {
+                $appIds = [];
+                foreach(AppService::search($q)->take(self::DISPLAY_SEARCH_RESULTS)->get() as $as) {
+                    $appIds[] = $as->app_code;
+                }
+                array_unique($appIds);
+                $items = Application::find($appIds);
+            }
         }
-        return View::make('applications.index')->with('items', $items);
+        return View::make('applications.index')->with(['items' => $items, 'q' => $q]);
     }
 
     /**
