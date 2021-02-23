@@ -16,11 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return redirect('applications'); });
 
-
-//Route::get('/', 'ApplicationController@index');
-//Route::resource('applications', 'App\Http\Controllers\ApplicationController');
-
 Route::resources([
-    'applications' => App\Http\Controllers\ApplicationController::class
+    'applications' => App\Http\Controllers\ApplicationController::class,
+    'services' => App\Http\Controllers\AppServiceController::class
 ]);
 

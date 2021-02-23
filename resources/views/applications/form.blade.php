@@ -64,9 +64,9 @@
             {!! Form::open(['url'=>$CID.'/'.$item->app_code, 'method'=>'delete', 'id'=>'delete-form']).Form::close() !!}
             <br/>
             <div class="alert alert-info">
-                <a name="services">{{ __('Application services') }}</a>
+                <a name="services">{{ __('Application\'s services') }}</a>
             </div>
-            <a class="btn btn-success" href="{{ url('/services/create?aid='.$item->app_code) }}" role="button">{{ __('Add new service to application') }}</a>
+            <a class="btn btn-success" href="{{ url('/services/create?app_code='.$item->app_code) }}" role="button">{{ __('Add new service to application') }}</a>
             <br/><br/>
             <table class="table table-striped">
             <tbody>

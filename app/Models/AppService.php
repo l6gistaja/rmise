@@ -12,7 +12,7 @@ class AppService extends Model
 	use Searchable;
 
 	protected $primaryKey = 'service_code';
-	protected $fillable = ['name', 'type', 'sub_type', 'description'];
+	protected $fillable = ['app_code', 'name', 'type', 'sub_type', 'description'];
 
     public function application()
     {

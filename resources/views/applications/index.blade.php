@@ -12,7 +12,6 @@
             <a class="btn btn-success" href="{{ url('/'.$CID.'/create') }}" role="button">{{ __('Add application') }}</a>
         </form>
         <br/><br/>
-&nbsp;
         @if($items)@if(count($items))<table class="table table-striped">
             <thead>
             <tr>
@@ -32,6 +31,6 @@
             </tr>
             @endforeach
             </tbody>
-        </table>@else {{__('(Empty list, nothing to show here.)')}} @endif @endif
+        </table>@else {{__('Couldn\'t find applications containing given keyword.')}} @endif @endif
     </div>
 @endsection
