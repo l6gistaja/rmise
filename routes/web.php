@@ -18,5 +18,9 @@ Route::get('/', function () { return redirect('applications'); });
 
 
 //Route::get('/', 'ApplicationController@index');
-Route::resource('applications', 'App\Http\Controllers\ApplicationController');
+//Route::resource('applications', 'App\Http\Controllers\ApplicationController');
+
+Route::resources([
+    'applications' => App\Http\Controllers\ApplicationController::class
+]);
 

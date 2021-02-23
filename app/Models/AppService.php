@@ -14,11 +14,16 @@ class AppService extends Model
 	protected $primaryKey = 'service_code';
 	protected $fillable = ['name', 'type', 'sub_type', 'description'];
 
+    public function application()
+    {
+        return $this->belongsTo(Application::class, 'app_code', 'app_code');
+    }
+
 	public function toSearchableArray()
     	{
         	return [
-            		'name' => $this->name,
-            		'type' => $this->type,
+            'name' => $this->name,
+            'type' => $this->type,
 			'sub_type' => $this->sub_type,
 			'description' => $this->description
         	];

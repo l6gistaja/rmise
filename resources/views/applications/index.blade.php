@@ -1,16 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+@php $CID = App\Http\Controllers\ApplicationController::CID; @endphp
     <div class="container">
 
-        <form action="{{ url('/applications') }}" class="input-group">
+        <form action="{{ url('/'.$CID) }}" class="input-group">
             <div class="input-group-prepend">
                 <input type="submit" class="btn btn-primary" id="bq" value="{{ __('Search') }}"/>
             </div>
-            <input type="text" name="q" class="form-control" placeholder="{{ __('Put keywords here') }}" aria-describedby="bq" value="{{ $q }}"/>
+            <input type="text" name="q" class="form-control" placeholder="{{ __('Insert keywords here and click Search') }}" aria-describedby="bq" value="{{ $q }}"/>
+            <a class="btn btn-success" href="{{ url('/'.$CID.'/create') }}" role="button">{{ __('Add application') }}</a>
         </form>
         <br/><br/>
-
+&nbsp;
         @if($items)@if(count($items))<table class="table table-striped">
             <thead>
             <tr>
@@ -23,7 +25,7 @@
             <tbody>
             @foreach($items as $k => $item)
             <tr>
-                <td><a href="{{ url('/applications/'.$item->id.'/edit') }}">{{ $item->name }}</a></td>
+                <td><a href="{{ url('/'.$CID.'/'.$item->app_code.'/edit') }}">{{ $item->name }}</a></td>
                 <td>{{ $item->app_group }}</td>
                 <td>{{ $item->app_type }}</td>
                 <td>{{ $item->app_cost }} €</td>

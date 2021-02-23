@@ -1,3 +1,5 @@
+This is dockerized Laravel with Elasticsearch demo, inspired by https://itnext.io/the-ultimate-guide-to-elasticsearch-in-laravel-application-ee636b79419c
+
 ## Setup
 
 Following describes setup under Debian Linux 10.

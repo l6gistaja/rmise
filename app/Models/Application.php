@@ -15,7 +15,7 @@ class Application extends Model
 
     public function appServices()
     {
-        return $this->hasMany(AppService::class);
+        return $this->hasMany(AppService::class, 'app_code', 'app_code');
     }
 
     public function toSearchableArray()
